@@ -6,7 +6,8 @@ TO DO:
 3. prisma /hotovo
 4. backend nakodit v com chces, ale napriklad python /js cca 50%
 5. frontend bud javascript (frameworky ako react, vue, angular) alebo cisty javascript alebo C# (blazor) /html, css a js 70% hotovo
-
+6. recommendations
+7. fix the about me showing
 async function updateCuisine(restaurantId, newCuisine) {
   const updatedRestaurant = await prisma.restauracie.update({
     where: {
