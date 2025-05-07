@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viliam Vidlička - Find a Restaurant</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+</head>
+<body>
+    
+    <header>
+        <div class="header-container">
+            <img src="/images/Vilko.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>Viliam Vidlička</h1>
+                <p>Nájdi najlepšie reštaurácie na Slovensku.</p>
+            </div>
+            <button id="menu-button">Menu</button>
+            <div id="dropdown-menu" class="dropdown">
+                <a href="index.html">Domov</a>
+                <a href="about.html">O nás</a>
+            </div>
+        </div>
+    </header>
+    
+
+    <main>
+        <section class="filters">
+            <label for="cuisine">Typ reštaurácie:</label>
+            <select id="cuisine">
+                <option>Všetky</option>
+                <option>Tradičné Slovenské</option>
+                <option>Fast Food</option>
+                <option>Steak House</option>
+                <option>Luxusné</option>
+                <option>Domáci Fast Food</option>
+                <option>Ázia</option>
+                <option>Talianske jedlo</option>
+                <option>All-You-Can-Eat Buffet</option>
+                <option>Bar</option>
+                <option>Kaviareň</option>
+            </select>
+
+            <label for="location">Mesto:</label>
+            <select id="location">
+                <option>Všetky</option>
+                <option>Bratislava</option>
+                <option>Nitra</option>
+                <option>Trnava</option>
+                <option>Žilina</option>
+                <option>Trenčín</option>
+                <option>Banska Bystrica</option>
+                <option>Košice</option>
+                <option>Prešov</option>
+            </select>
+            <button id="search">Hladať</button>
+        </section>
+
+        <section class="results">
+            <h2>Dostupné reštaurácie</h2>
+            <p>Vyber typ reštaurácie a mesto aby si videl reštaurácie.</p>
+        </section>
+        <!-- filepath: /home/lukas/Programming/hackathon/backend/public/index.html -->
+        <script>
+            document.getElementById('search').addEventListener('click', async () => {
+                const cuisine = document.getElementById('cuisine').value;
+                const location = document.getElementById('location').value;
+
+                try {
+                    const response = await fetch(`/search?cuisine=${encodeURIComponent(cuisine)}&location=${encodeURIComponent(location)}`);
+                    const restaurants = await response.json();
+
+                    const resultsSection = document.querySelector('.results');
+                    resultsSection.innerHTML = '<h2>Dostupné reštaurácie</h2>';
+
+                    if (restaurants.length > 0) {
+                        const list = document.createElement('ul');
+                        restaurants.forEach(restaurant => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = `${restaurant.name} - ${restaurant.address}`;
+                            list.appendChild(listItem);
+                        });
+                        resultsSection.appendChild(list);
+                    } else {
+                        resultsSection.innerHTML += '<p>Žiadne reštaurácie neboli nájdené.</p>';
+                    }
+                } catch (error) {
+                    console.error('Error fetching restaurants:', error);
+                }
+            });
+        </script>
+    </main>
+</body>
+</html>
