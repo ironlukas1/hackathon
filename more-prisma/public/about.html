@@ -30,6 +30,7 @@
         <div class="color-box" id="yellow" style="background-color: yellow;"></div>
         <div class="color-box" id="blue" style="background-color: blue;"></div>
     </section>
+    
 
     <!-- Text Display -->
     <section class="text-display">
@@ -46,7 +47,24 @@
         document.querySelectorAll(".color-box").forEach(box => {
             box.addEventListener("click", function () {
                 const selectedColor = this.style.backgroundColor;
+                // Update header background color
                 document.querySelector("header").style.backgroundColor = selectedColor;
+                
+                // Update menu button colors (border and text)
+                const menuButton = document.getElementById("menu-button");
+                menuButton.style.borderColor = selectedColor;
+                menuButton.style.color = selectedColor;
+                
+                // Update hover state dynamically
+                menuButton.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = selectedColor;
+                    this.style.color = 'white';
+                });
+                
+                menuButton.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = 'white';
+                    this.style.color = selectedColor;
+                });
             });
         });
     </script>
