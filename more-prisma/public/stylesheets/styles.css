@@ -24,23 +24,22 @@ header {
     width: 100%;
     padding: 0 20px;
 }
-.logo {
-    position: absolute;
-    left: 0px;
-    width: 60px;
-    height: auto;
-}
+
 .header-text {
     text-align: center;
     margin: 0 auto;
 }
+
 .logo {
-    position: fixed;
-    top: -15px;
-    right: 20px;
-    width: 200px;
+    position: absolute;  /* Changed from fixed to absolute */
+    left: 20px;         /* Consistent left spacing */
+    top: 50%;          /* Center vertically */
+    transform: translateY(-50%);  /* Perfect vertical centering */
+    width: 175px;       /* Smaller width for better fit */
     height: auto;
+    z-index: 1;        /* Ensure logo stays above other content */
 }
+
 .filters {
     margin: 20px auto;
     padding: 15px;
@@ -111,14 +110,33 @@ footer {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin: 20px 0;
+    margin: 20px 20px;
 }
 
 .color-box {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     cursor: pointer;
     border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.color-img {
+    width: 250px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.color-box:hover .color-img {
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 .text-display {
@@ -126,6 +144,7 @@ footer {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 20px;
+    justify-content: right;
 }
 .results ul {
     list-style: none;
@@ -134,11 +153,24 @@ footer {
 }
 
 .results li {
-    font-size: 18px;
+    font-size: 16px;
     color: #333;
-    padding: 10px;
+    padding: 15px;
     border-bottom: 1px solid #ddd;
     text-align: left;
+    line-height: 1.6;
+}
+
+.results li strong {
+    font-size: 18px;
+    color: #ff6600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.results li:hover {
+    background-color: #fff5eb;
+    transition: background-color 0.3s ease;
 }
 
 .results li:last-child {
@@ -176,4 +208,21 @@ footer {
     background-color: #e65c00;
     color: white;
     transform: translateY(-50%) scale(0.95);
+}
+.text-display {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.text-display p {
+    margin: 0;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: inline-block;
 }

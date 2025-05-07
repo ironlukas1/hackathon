@@ -15,10 +15,10 @@
                 <h1>Viliam Vidlička</h1>
                 <p>Nájdi najlepšie reštaurácie na Slovensku.</p>
             </div>
-            <button id="menu-button" onclick="window.location.href='about.html'">O nas</button>
+            <button id="menu-button" onclick="window.location.href='about.html'">O nás</button>
             <div id="dropdown-menu" class="dropdown">
                 <a href="index.html">Domov</a>
-                <a href="about.html">O nás</a>
+                <a href="about.html">O nás</a>ť
             </div>
         </div>
     </header>
@@ -76,7 +76,13 @@
                         const list = document.createElement('ul');
                         restaurants.forEach(restaurant => {
                             const listItem = document.createElement('li');
-                            listItem.textContent = `${restaurant.name} - ${restaurant.address}`;
+                            const rating = restaurant.rating ? `${restaurant.rating}/5` : 'Bez hodnotenia';
+                            listItem.innerHTML = `
+                                <strong>${restaurant.name}</strong><br>
+                                🏠 ${restaurant.location}<br>
+                                🍽️ ${restaurant.cuisine}<br>
+                                ⭐ ${rating}
+                            `;
                             list.appendChild(listItem);
                         });
                         resultsSection.appendChild(list);
@@ -84,7 +90,7 @@
                         resultsSection.innerHTML += '<p>Žiadne reštaurácie neboli nájdené.</p>';
                     }
                 } catch (error) {
-                    console.error('Error fetching restaurants:', error);
+                    console.error('Error:', error);
                 }
             });
         </script>

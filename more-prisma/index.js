@@ -24,7 +24,6 @@ app.get('/users', async (req, res) => {
     }
 });
 
-// Example route to fetch restaurants based on cuisine and location
 app.get('/search', async (req, res) => {
     const { cuisine, location } = req.query;
 
@@ -34,9 +33,16 @@ app.get('/search', async (req, res) => {
                 cuisine: cuisine !== 'Všetky' ? cuisine : undefined,
                 location: location !== 'Všetky' ? location : undefined,
             },
+            select: {
+                name: true,
+                location: true,
+                cuisine: true,
+                rating: true
+            }
         });
         res.json(restaurants);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to fetch restaurants' });
     }
 });

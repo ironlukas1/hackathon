@@ -15,20 +15,32 @@
                 <h1>Viliam Vidlička</h1>
                 <p>Nájdi najlepšie reštaurácie na Slovensku.</p>
             </div>
-            <button id="menu-button" onclick="window.location.href='index.html'">Spat</button>
+            <button id="menu-button" onclick="window.location.href='index.html'">Späť</button>
             <div id="dropdown-menu" class="dropdown">
                 <a href="index.html">Domov</a>
                 <a href="about.html">O nás</a>
             </div>
         </div>
     </header>
+
+    <img src="/images/Spencer.png" alt="Spencer" id="spencer-spork" style="display: none;">
+    <img src="/images/Lydia.png" alt="Lydia" id="lydia-lyzicka" style="display: none;">
+    <img src="/images/Norbert.png" alt="Norbert" id="norbert-nozik" style="display: none;">
+    <img src="/images/Vilko.png" alt="Vilko" id="vilko-vidlicka" style="display: none;">
     
-    <!-- Colored Squares -->
     <section class="color-options">
-        <div class="color-box" id="orange" style="background-color: orange;"></div>
-        <div class="color-box" id="green" style="background-color: green;"></div>
-        <div class="color-box" id="yellow" style="background-color: yellow;"></div>
-        <div class="color-box" id="blue" style="background-color: blue;"></div>
+        <div class="color-box" id="orange" style="background-color: #ff6600;">
+            <img src="/images/Vilko.png" alt="vilko" class="color-img">
+        </div>
+        <div class="color-box" id="green" style="background-color: green;">
+            <img src="/images/Norbert.png" alt="norbert" class="color-img">
+        </div>
+        <div class="color-box" id="yellow" style="background-color: yellow;">
+            <img src="/images/Lydia.png" alt="lydia" class="color-img">
+        </div>
+        <div class="color-box" id="blue" style="background-color: blue;">
+            <img src="/images/Spencer.png" alt="spencer" class="color-img">
+        </div>
     </section>
     
 
@@ -47,6 +59,8 @@
         document.querySelectorAll(".color-box").forEach(box => {
             box.addEventListener("click", function () {
                 const selectedColor = this.style.backgroundColor;
+                const altText = this.querySelector('.color-img').alt;
+                
                 // Update header background color
                 document.querySelector("header").style.backgroundColor = selectedColor;
                 
@@ -54,6 +68,9 @@
                 const menuButton = document.getElementById("menu-button");
                 menuButton.style.borderColor = selectedColor;
                 menuButton.style.color = selectedColor;
+                
+                // Update the display text with the alt text
+                document.getElementById('display-text').textContent = `Ahoj! Ja som ${altText}`;
                 
                 // Update hover state dynamically
                 menuButton.addEventListener('mouseenter', function() {
@@ -64,8 +81,36 @@
                 menuButton.addEventListener('mouseleave', function() {
                     this.style.backgroundColor = 'white';
                     this.style.color = selectedColor;
+
+                    // Show the corresponding image
+                    const Spencer = document.getElementById('spencer-spork');
+                    const Vilko = document.getElementById('vilko-vidlicka');
+                    const Norbert = document.getElementById('norbert-nozik');
+                    const Lydia = document.getElementById('lydia-lyzicka');
+
+                    if (selectedColor === "blue") {
+                        Spencer.style.display = "block";
+                    } else {
+                        Spencer.style.display = "none";
+                    }
+                    if (selectedColor === "#ff6600") {
+                        Vilko.style.display = "block";
+                    } else {
+                        Vilko.style.display = "none";
+                    }
+                    if (selectedColor === "green") {
+                        Norbert.style.display = "block";
+                    } else {
+                        Norbert.style.display = "none";
+                    }
+                    if (selectedColor === "yellow") {
+                        Lydia.style.display = "block";
+                    } else {
+                        Lydia.style.display = "none";
+                    }
                 });
             });
         });
     </script>
 </body>
+</html>
