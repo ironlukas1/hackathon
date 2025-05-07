@@ -1,4 +1,13 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viliam Vidlička - Find a Restaurant</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+</head>
 <body>
+    
     <header>
         <div class="header-container">
             <img src="/images/Vilko.png" alt="Logo" class="logo">
@@ -6,14 +15,14 @@
                 <h1>Viliam Vidlička</h1>
                 <p>Nájdi najlepšie reštaurácie na Slovensku.</p>
             </div>
-            <button id="menu-button">Menu</button>
+            <button id="menu-button" onclick="window.location.href='index.html'">Spat</button>
             <div id="dropdown-menu" class="dropdown">
                 <a href="index.html">Domov</a>
                 <a href="about.html">O nás</a>
             </div>
         </div>
     </header>
-
+    
     <!-- Colored Squares -->
     <section class="color-options">
         <div class="color-box" id="orange" style="background-color: orange;"></div>
@@ -33,22 +42,11 @@
             <p>Viliam Vidlička je váš osobný sprievodca po najlepších reštauráciách na Slovensku. Naším cieľom je poskytnúť vám najlepšie odporúčania a recenzie, aby ste si mohli vychutnať jedlo v tých najlepších podnikoch.</p>
         </section>
     </main>
-
     <script>
-        // Object containing colors and corresponding texts
-        const colorData = {
-            orange: { color: "orange", text: "Oranžová - Energetická a živá atmosféra!" },
-            green: { color: "green", text: "Zelená - Pokojná a prírodná harmónia!" },
-            yellow: { color: "yellow", text: "Žltá - Veselá a optimistická nálada!" },
-            blue: { color: "blue", text: "Modrá - Pokojná a relaxačná atmosféra!" }
-        };
-
-        // Add event listeners to each color box
         document.querySelectorAll(".color-box").forEach(box => {
             box.addEventListener("click", function () {
-                const selectedColor = colorData[this.id];
-                document.body.style.backgroundColor = selectedColor.color;
-                document.getElementById("display-text").textContent = selectedColor.text;
+                const selectedColor = this.style.backgroundColor;
+                document.querySelector("header").style.backgroundColor = selectedColor;
             });
         });
     </script>

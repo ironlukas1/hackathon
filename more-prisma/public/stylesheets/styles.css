@@ -20,7 +20,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: center;
+    position: relative;
+    width: 100%;
+    padding: 0 20px;
 }
 .logo {
     position: absolute;
@@ -124,4 +126,54 @@ footer {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 20px;
+}
+.results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.results li {
+    font-size: 18px;
+    color: #333;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.results li:last-child {
+    border-bottom: none;
+}
+
+.results li:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+#menu-button {
+    background-color: white;
+    color: #ff6600; /* Changed to orange text color */
+    padding: 10px 20px;
+    border: 2px solid #ff6600; /* Added border to maintain visual connection */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute; /* Changed to absolute positioning */
+    right: 20px; /* Position from right edge */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Perfect vertical centering */
+}
+
+#menu-button:hover {
+    background-color: #ff6600;
+    color: white;
+    transform: translateY(-50%) scale(1.05);
+}
+
+#menu-button:active {
+    background-color: #e65c00;
+    color: white;
+    transform: translateY(-50%) scale(0.95);
 }

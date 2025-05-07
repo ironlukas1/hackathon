@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
                 <h1>Viliam Vidlička</h1>
                 <p>Nájdi najlepšie reštaurácie na Slovensku.</p>
             </div>
-            <button id="menu-button">Menu</button>
+            <button id="menu-button" onclick="window.location.href='about.html'">O nas</button>
             <div id="dropdown-menu" class="dropdown">
                 <a href="index.html">Domov</a>
                 <a href="about.html">O nás</a>
@@ -60,7 +60,6 @@
             <h2>Dostupné reštaurácie</h2>
             <p>Vyber typ reštaurácie a mesto aby si videl reštaurácie.</p>
         </section>
-        <!-- filepath: /home/lukas/Programming/hackathon/backend/public/index.html -->
         <script>
             document.getElementById('search').addEventListener('click', async () => {
                 const cuisine = document.getElementById('cuisine').value;
