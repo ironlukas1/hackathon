@@ -16,10 +16,6 @@
                 <p>Nájdi najlepšie reštaurácie na Slovensku.</p>
             </div>
             <button id="menu-button" onclick="window.location.href='index.html'">Späť</button>
-            <div id="dropdown-menu" class="dropdown">
-                <a href="index.html">Domov</a>
-                <a href="about.html">O nás</a>
-            </div>
         </div>
     </header>
 
@@ -29,31 +25,34 @@
     <img src="/images/Vilko.png" alt="Vilko" id="vilko-vidlicka" style="display: none;">
     
     <section class="color-options">
-        <div class="color-box" id="orange" style="background-color: #ff6600;">
-            <img src="/images/Vilko.png" alt="vilko" class="color-img">
-        </div>
-        <div class="color-box" id="green" style="background-color: green;">
-            <img src="/images/Norbert.png" alt="norbert" class="color-img">
-        </div>
-        <div class="color-box" id="yellow" style="background-color: yellow;">
-            <img src="/images/Lydia.png" alt="lydia" class="color-img">
-        </div>
-        <div class="color-box" id="blue" style="background-color: blue;">
-            <img src="/images/Spencer.png" alt="spencer" class="color-img">
-        </div>
+        
     </section>
     
-
-    <!-- Text Display -->
     <section class="text-display">
         <p id="display-text">Kliknite na štvorce a zmeňte farbu stránky!</p>
     </section>
 
     <main>
-        <section class="about">
-            <h2>O nás</h2>
-            <p>Viliam Vidlička je váš osobný sprievodca po najlepších reštauráciách na Slovensku. Naším cieľom je poskytnúť vám najlepšie odporúčania a recenzie, aby ste si mohli vychutnať jedlo v tých najlepších podnikoch.</p>
-        </section>
+        <div class="content-wrapper">
+            <div class="color-options">
+                <div class="color-box" id="orange" style="background-color: #ff6600;">
+                    <img src="/images/Vilko.png" alt="vilko" class="color-img">
+                </div>
+                <div class="color-box" id="green" style="background-color: green;">
+                    <img src="/images/Norbert.png" alt="norbert" class="color-img">
+                </div>
+                <div class="color-box" id="yellow" style="background-color: red;">
+                    <img src="/images/Lydia.png" alt="lydia" class="color-img">
+                </div>
+                <div class="color-box" id="blue" style="background-color: blue;">
+                    <img src="/images/Spencer.png" alt="spencer" class="color-img">
+                </div>
+            </div>
+            <div class="about">
+                <h2>O nás</h2>
+                <p>Viliam Vidlička je váš osobný sprievodca po najlepších reštauráciách na Slovensku. Naším cieľom je poskytnúť vám najlepšie odporúčania a recenzie, aby ste si mohli vychutnať jedlo v tých najlepších podnikoch.</p>
+            </div>
+        </div>
     </main>
     <script>
         document.querySelectorAll(".color-box").forEach(box => {
@@ -103,7 +102,7 @@
                     } else {
                         Norbert.style.display = "none";
                     }
-                    if (selectedColor === "yellow") {
+                    if (selectedColor === "red") {
                         Lydia.style.display = "block";
                     } else {
                         Lydia.style.display = "none";

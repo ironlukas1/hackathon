@@ -3,12 +3,12 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 async function main() {
-    const newRestaurant = await prisma.restaurant.create({
+    const newRestaurant = await prisma.restauracie.create({
         data: {
-            name: 'Sample Restaurant',
-            location: '123 Main Street',
-            cuisine: 'Italian',
-            rating: 4.5,
+            name: 'Wetzlerov Dom',
+            location: 'Trnava',
+            cuisine: 'Tradičné Slovenské',
+            rating: 3.9,
         },
     });
     console.log('New Restaurant Added:', newRestaurant);

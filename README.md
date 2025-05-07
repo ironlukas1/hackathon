@@ -8,3 +8,4 @@ TO DO:
 5. frontend bud javascript (frameworky ako react, vue, angular) alebo cisty javascript alebo C# (blazor) /html, css a js 70% hotovo
 6. recommendations
 7. fix the about me showing
+8. fill database (at least 100 restaurants)  10/100
