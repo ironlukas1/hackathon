@@ -1,4 +1,16 @@
-HACKATHON
+A restaurant finding website for a Hackathon I was in.
+
+What is needed to run a localhost:
+    **.** node.js
+    **.** prisma
+    **.** express
+    **.** tsx
+    **.** typescript
+
+How to run a localhost:
+    **.** Idk follow whatever tutorial you find
+    **.** message me for more support maybe
+    **.** try random things in the terminal (dont do that pls)
 
 TO DO:
 1. fetch (ziskavanie dat) /nebude sa robit
